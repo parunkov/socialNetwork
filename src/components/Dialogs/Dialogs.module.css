@@ -15,5 +15,15 @@
 	padding: 10px;
 }
 .message {
-
+	display: grid;
+	/*grid-template-areas: "avatar text";*/
+	grid-template-columns: 80px 1fr;
+	margin-bottom: 10px;
+}
+.message__avatar {
+	width: 60px;
+	border-radius: 50%;
+}
+.addMessageBlock {
+	padding: 10px;
 }

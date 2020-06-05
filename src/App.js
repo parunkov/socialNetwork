@@ -11,14 +11,24 @@ import {Route, BrowserRouter} from 'react-router-dom';
 
 const App = (props) => {
 
+  // console.log(props);
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route path="/dialogs" render={() => <Dialogs state={props.state.messages} />} />
-          <Route path="/profile" render={() => <Profile state={props.state.profile} />} />
+          <Route path="/dialogs" render={() => <Dialogs 
+            state={props.state.messages} 
+            addMessage={props.addMessage} 
+            updateMewMessage={props.updateMewMessage}
+           />} />
+          <Route path="/profile" render={() => <Profile 
+            state={props.state.profile} 
+            addPost={props.addPost} 
+            updateNewPostText={props.updateNewPostText} 
+           />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/settings" render={() => <Settings />} />
