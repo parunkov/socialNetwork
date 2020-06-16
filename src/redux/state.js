@@ -1,7 +1,7 @@
 // import {rerender} from './../index';
-let rerender = () => {
-	console.log('State is changed');
-}
+// let rerender = () => {
+// 	console.log('State is changed');
+// }
 
 const data = ['Andrey', 'Galina', 'Anna', 'Maxim', 'Tanya'];
 	const dialogsData = [];
@@ -22,7 +22,7 @@ const postsData = [
 		{id: 2, text: "It's my first post.", likesCount: 11}
 	]
 
-const state = {
+const stateCreate = {
 	messages: {
 		dialogsData: dialogsData,
 		messagesData: messagesData,
@@ -34,75 +34,89 @@ const state = {
 	}
 }
 
-export const addPost = () => {
-	const newPost = {};
-	newPost.id = 3;
-	newPost.text = state.profile.newPostText;
-	newPost.likesCount = 0;
-	state.profile.postsData.push(newPost);
-	state.profile.newPostText = '';
-	rerender(state);
-}
+// export const addPost = () => {
+// 	const newPost = {};
+// 	newPost.id = 3;
+// 	newPost.text = state.profile.newPostText;
+// 	newPost.likesCount = 0;
+// 	state.profile.postsData.push(newPost);
+// 	state.profile.newPostText = '';
+// 	rerender(state);
+// }
 
-export const updateNewPostText = (newText) => {
-	state.profile.newPostText = newText;
-	rerender(state);
-}
+// export const updateNewPostText = (newText) => {
+// 	state.profile.newPostText = newText;
+// 	rerender(state);
+// }
 
-export const addMessage = () => {
-	const newMessage = {};
-	newMessage.id = 4;
-	newMessage.message = state.messages.newMessageText;
-	state.messages.messagesData.push(newMessage);
-	state.messages.newMessageText = '';
-	rerender(state);
-}
+// export const addMessage = () => {
+// 	const newMessage = {};
+// 	newMessage.id = 4;
+// 	newMessage.message = state.messages.newMessageText;
+// 	state.messages.messagesData.push(newMessage);
+// 	state.messages.newMessageText = '';
+// 	rerender(state);
+// }
 
-export const updateMewMessage = (newMessage) => {
-	state.messages.newMessageText = newMessage;
-	rerender(state);
-}
+// export const updateMewMessage = (newMessage) => {
+// 	state.messages.newMessageText = newMessage;
+// 	rerender(state);
+// }
 
-export const subscribe = (observer) => {
-	rerender = observer;
-}
+// export const subscribe = (observer) => {
+// 	rerender = observer;
+// }
 
 let store = {
-	_state: state,
+	_state: stateCreate,
+
+	_callSubscriber () {
+
+	},
+
+	getState () {
+		// debugger;
+		return this._state;
+	},
+
 	addPost () {
 		const newPost = {};
 		newPost.id = 3;
-		newPost.text = state.profile.newPostText;
+		newPost.text = this._state.profile.newPostText;
 		newPost.likesCount = 0;
-		state.profile.postsData.push(newPost);
-		state.profile.newPostText = '';
-		rerender(state);
+		this._state.profile.postsData.push(newPost);
+		this._state.profile.newPostText = '';
+		this._callSubscriber(this._state);
 	},
 
 	updateNewPostText (newText) {
-		state.profile.newPostText = newText;
-		rerender(state);
+		console.log(this);
+		// debugger;
+		this._state.profile.newPostText = newText;
+		this._callSubscriber(this._state);
 	},
 
 	addMessage () {
 		const newMessage = {};
 		newMessage.id = 4;
-		newMessage.message = state.messages.newMessageText;
-		state.messages.messagesData.push(newMessage);
-		state.messages.newMessageText = '';
-		rerender(state);
+		newMessage.message = this._state.messages.newMessageText;
+		this._state.messages.messagesData.push(newMessage);
+		this._state.messages.newMessageText = '';
+		this._callSubscriber(this._state);
 	},
 
 	updateMewMessage (newMessage) {
-		state.messages.newMessageText = newMessage;
-		rerender(state);
+		this._state.messages.newMessageText = newMessage;
+		this._callSubscriber(this._state);
 	},
 
 	subscribe (observer) {
-		rerender = observer;
+		this._callSubscriber = observer;
 	}
 }
 
-export {store};
+// console.log(store._state);
 
-export default state;
+// export {store};
+
+export default store;

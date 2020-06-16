@@ -12,6 +12,8 @@ import {Route, BrowserRouter} from 'react-router-dom';
 const App = (props) => {
 
   // console.log(props);
+  const state = props.store.getState();
+  // console.log(state);
 
   return (
     <BrowserRouter>
@@ -20,14 +22,14 @@ const App = (props) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Route path="/dialogs" render={() => <Dialogs 
-            state={props.state.messages} 
-            addMessage={props.addMessage} 
-            updateMewMessage={props.updateMewMessage}
+            state={state.messages} 
+            addMessage={props.store.addMessage.bind(props.store)} 
+            updateMewMessage={props.store.updateMewMessage.bind(props.store)}
            />} />
           <Route path="/profile" render={() => <Profile 
-            state={props.state.profile} 
-            addPost={props.addPost} 
-            updateNewPostText={props.updateNewPostText} 
+            state={state.profile} 
+            addPost={props.store.addPost.bind(props.store)} 
+            updateNewPostText={props.store.updateNewPostText.bind(props.store)} 
            />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/news" render={() => <News />} />
