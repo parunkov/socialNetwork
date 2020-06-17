@@ -15,7 +15,8 @@ export const rerender = (state) => {
 	ReactDOM.render(
 	  <React.StrictMode>
 	    <App 
-	    	store={store} 
+	    	store={store}
+	    	dispatch={store.dispatch.bind(store)} 
 	    />
 	  </React.StrictMode>,
 	  document.getElementById('root')
