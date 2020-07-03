@@ -7,7 +7,7 @@ import {userAPI} from '../../api/api';
 
 class HeaderContainer extends React.Component {
 	componentDidMount() {
-		this.props.checkLogin();
+ 		this.props.checkLogin();
 	}
 	render() {
 		return <Header {...this.props} />
