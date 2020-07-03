@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Users.module.css';
 import userPhoto from './../../assets/images/i.webp';
 import {NavLink} from 'react-router-dom';
-import * as axios from 'axios';
+// import * as axios from 'axios';
 import {userAPI} from './../../api/api';
 console.log(typeof userAPI.follow);
 
@@ -35,18 +35,22 @@ const Users = (props) => {
 							</div>
 							<div>
 								{u.followed ? 
-									<button onClick={() => {
+									<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+										props.toggleFollowingInProgress(true, u.id);
 										userAPI.unfollow(u.id).then(data => {
 											if (data.resultCode === 0) {
 												props.follow(u.id);
 											}
+											props.toggleFollowingInProgress(false, u.id);
 										});
 									}}>Unfollow</button>
-									: <button button onClick={() => {
+									: <button disabled={props.followingInProgress.some(id => id === u.id)} button onClick={() => {
+										props.toggleFollowingInProgress(true, u.id);
 										userAPI.follow(u.id).then(data => {
 											if (data.resultCode === 0) {
 												props.unfollow(u.id);
 											}
+											props.toggleFollowingInProgress(false, u.id);
 										});
 									}}>Follow</button>}
 							</div>
