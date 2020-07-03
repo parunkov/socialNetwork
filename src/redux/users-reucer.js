@@ -2,12 +2,15 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
+const TOGGLE_IS_FETCHING ='TOGGLE-IS-FETCHING';
 
 const initialState = {
 	users: [],
 	pageSize: 5,
-	totalUsersCount: 20,
-	currentPage: 1
+	totalUsersCount: 0,
+	currentPage: 1,
+	isFetching: false
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -46,61 +49,49 @@ const usersReducer = (state = initialState, action) => {
 				currentPage: action.currentPage
 			}
 		}
+		case SET_TOTAL_USERS_COUNT: {
+			return {
+				...state,
+				totalUsersCount: action.count
+			}
+		}
+		case TOGGLE_IS_FETCHING: {
+			return {
+				...state,
+				isFetching: action.isFetching
+			}
+		}
 		default:
 			return state;
 	}
 }
 
-export const followAC = (userId) => ({
+export const follow = (userId) => ({
 	type: FOLLOW,
 	userId
 });
 
-export const unfollowAC = (userId) => ({
+export const unfollow = (userId) => ({
 	type: UNFOLLOW,
 	userId
 });
 
-export const setUsersAC = (users) => ({
+export const setUsers = (users) => ({
 	type: SET_USERS,
 	users
 });
-export const setCurrentPageAC = (currentPage) => ({
+export const setCurrentPage = (currentPage) => ({
 	type: SET_CURRENT_PAGE,
 	currentPage
+});
+export const setTotalUsersCount = (count) => ({
+	type: SET_TOTAL_USERS_COUNT,
+	count
+});
+export const toggleIsFetching = (isFetching) => ({
+	type:TOGGLE_IS_FETCHING,
+	isFetching
 });
 
 export default usersReducer;
 
-// {
-		// 	id: 1, 
-		// 	photoUrl: 'https://www.1zoom.ru/big2/30/147941-aleni.jpg', 
-		// 	followed: false, 
-		// 	fullName: 'Anna A.', 
-		// 	status: 'I am OK', 
-		// 	location: {city: 'Moscow', country: 'Russia'}
-		// },
-		// {
-		// 	id: 2, 
-		// 	photoUrl: 'https://www.1zoom.ru/big2/30/147941-aleni.jpg', 
-		// 	followed: true, 
-		// 	fullName: 'Maxim A.', 
-		// 	status: 'Hey gays', 
-		// 	location: {city: 'Tula', country: 'Russia'}
-		// },
-		// {
-		// 	id: 3, 
-		// 	photoUrl: 'https://www.1zoom.ru/big2/30/147941-aleni.jpg', 
-		// 	followed: false, 
-		// 	fullName: 'Ivan V.', 
-		// 	status: 'The best', 
-		// 	location: {city: 'Minsk', country: 'Belarus'}
-		// },
-		// {
-		// 	id: 4, 
-		// 	photoUrl: 'https://www.1zoom.ru/big2/30/147941-aleni.jpg', 
-		// 	followed: false, 
-		// 	fullName: 'Andrey P.', 
-		// 	status: 'React Redux', 
-		// 	location: {city: 'Kiev', country: 'Ukraine'}
-		// }

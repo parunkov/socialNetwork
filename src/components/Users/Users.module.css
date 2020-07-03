@@ -2,6 +2,13 @@
 	width: 60px;
 	border-radius: 50%;
 }
-.selectedPage {
+.pagination .selectedPage {
 	font-weight: bold;
+	cursor: default;
+}
+.pagination span {
+	cursor: pointer;
+}
+.pagination span:after {
+	content: ' ';
 }
