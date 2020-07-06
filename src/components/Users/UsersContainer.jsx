@@ -2,11 +2,7 @@ import React from 'react';
 import {
 		follow, 
 		unfollow, 
-		setUsers, 
 		setCurrentPage, 
-		setTotalUsersCount, 
-		toggleIsFetching,
-		toggleFollowingInProgress,
 		getUsers
 	} from './../../redux/users-reucer';
 import {connect} from 'react-redux';

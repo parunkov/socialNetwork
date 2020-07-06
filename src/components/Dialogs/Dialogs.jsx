@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
-import Message from'./Message/Message';
+import Message from './Message/Message';
+import {Redirect} from 'react-router-dom';
 
 const Dialogs = (props) => {
+
+	console.log(props.isAuth);
 
 	const dialogsElements = props.dialogsData.map(data => <DialogsItem name={data.name} key={data.id} id={data.id} />);
 	const messagesElements = props.messagesData.map(message => <Message message={message.message} key={message.id} />);
@@ -14,6 +17,10 @@ const Dialogs = (props) => {
 	const onInputChange = () => {
 		const message = newMessage.current.value;
 		props.updateNewMessage(message);
+	}
+
+	if (!props.isAuth) {
+		return <Redirect to="/login" />
 	}
 
 	return (

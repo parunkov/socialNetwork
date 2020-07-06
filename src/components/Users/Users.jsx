@@ -2,9 +2,7 @@ import React from 'react';
 import styles from './Users.module.css';
 import userPhoto from './../../assets/images/i.webp';
 import {NavLink} from 'react-router-dom';
-// import * as axios from 'axios';
 import {userAPI} from './../../api/api';
-console.log(typeof userAPI.follow);
 
 const Users = (props) => {
 
