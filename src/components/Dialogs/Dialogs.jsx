@@ -5,7 +5,7 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-	console.log(props.isAuth);
+	// console.log(props.isAuth);
 
 	const dialogsElements = props.dialogsData.map(data => <DialogsItem name={data.name} key={data.id} id={data.id} />);
 	const messagesElements = props.messagesData.map(message => <Message message={message.message} key={message.id} />);

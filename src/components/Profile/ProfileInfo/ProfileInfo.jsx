@@ -14,12 +14,12 @@ const ProfileInfo = (props) => {
 			</div>*/}
 			<img src={props.profile.photos.large} alt="" />
 			<div className={styles.descripionBlock}>{props.profile.fullName}</div>
-			<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.facebook}>Facebook</a>
+			{/*<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.facebook}>Facebook</a>
 			<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.vk}>VK</a>
-			<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.twitter}>Twitter</a>
+			<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.twitter}>Twitter</a>*/}
 			<div className={styles.descripionBlock}>{props.profile.aboutMe}</div>
 			{/*<div className={styles.descripionBlock}>ava + descripion</div>*/}
-			<ProfileStatus status={"hello"} />
+			<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
 		</div>
 	)
 }
