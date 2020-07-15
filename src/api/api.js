@@ -29,6 +29,11 @@ export const userAPI = {
 			return response.data
 		});
 	},
+	login() {
+		return instance.post(`/auth/login`).then(response => {
+			return response.data;
+		});
+	},
 	getProfile(userId) {
 		return instance.get(`profile/${userId}`).then(response => {
 			console.warn('Obsolete method. Please use profileAPI object.');

@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MEW_MESSAGE = 'UPDATE-MEW-MESSAGE';
 
 const data = ['Andrey', 'Galina', 'Anna', 'Maxim', 'Tanya'];
 	const dialogsData = [];
@@ -18,8 +17,7 @@ const messages = ['Hi', 'How are you?', 'Yo'];
 
 const initialState = {
 	dialogsData: dialogsData,
-	messagesData: messagesData,
-	newMessageText: ""
+	messagesData: messagesData
 }
 
 const messagesReducer = (state = initialState, action) => {
@@ -29,15 +27,8 @@ const messagesReducer = (state = initialState, action) => {
 				...state,
 				messagesData: [...state.messagesData, {
 					id: 4,
-					message: state.newMessageText
-				}],
-				newMessageText: ''
-			};
-		}
-		case UPDATE_MEW_MESSAGE: {
-			return {
-				...state,
-				newMessageText: action.newMessage
+					message: action.newMessageText
+				}]
 			};
 		}
 		default:
@@ -45,12 +36,9 @@ const messagesReducer = (state = initialState, action) => {
 	}
 }
 
-export const addMessageActionCreator = () => ({
-	type: ADD_MESSAGE
-});
-export const updateNewMessageActionCreator = (message) => ({
-	type: UPDATE_MEW_MESSAGE,
-	newMessage: message
+export const addMessageActionCreator = (message) => ({
+	type: ADD_MESSAGE,
+	newMessageText: message
 });
 
 export default messagesReducer;
