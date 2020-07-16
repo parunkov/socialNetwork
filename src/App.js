@@ -9,10 +9,9 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
-import {Route, BrowserRouter, withRouter} from 'react-router-dom';
-import {checkLogin, initializeApp} from './redux/auth-reducer';
+import {Route, BrowserRouter} from 'react-router-dom';
+import {initializeApp} from './redux/app-reducer';
 import {connect} from 'react-redux';
-import {compose} from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
 
 class App extends React.Component {
@@ -25,7 +24,6 @@ class App extends React.Component {
   render() {
 
     if (!this.props.initialized) {
-      debugger;
       return <Preloader />
     }
 
@@ -58,9 +56,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {initializeApp})(App);
-
-// export default connect(null, {checkLogin})(App);
-// export default compose (
-//   connect(null, {checkLogin}),
-//   withRouter
-// )(App);
