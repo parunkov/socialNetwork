@@ -1,4 +1,5 @@
 import {userAPI} from '../api/api';
+import {stopSubmit} from 'redux-form';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -37,9 +38,16 @@ export const checkLogin = () => {
 }
 
 export const login = (email, password, rememberMe) => (dispatch) => {
+  const action = stopSubmit("login", {_error: "Email or password is wrong"});
+      dispatch(action);
+      return;
   userAPI.login(email, password, rememberMe).then(data => {
+    // console.log(data);
     if (data.resultCode === 0) {
       dispatch(checkLogin());
+    } else {
+      // const message = data.messages > 0 ? data.messages[0] : "Email is wrong";
+      // dispatch(stopSubmit("login", {login: message}));
     }
   });
 }

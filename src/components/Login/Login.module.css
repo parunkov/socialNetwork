@@ -1,0 +1,7 @@
+.formSummeryError {
+	padding: 5px;
+	line-height: 0.7em;
+	color: white;
+	background: red;
+	display: inline-block;
+}
