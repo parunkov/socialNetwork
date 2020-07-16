@@ -2,8 +2,10 @@ import {userAPI} from '../api/api';
 import {stopSubmit} from 'redux-form';
 
 const SET_USER_DATA = 'SET_USER_DATA';
+const SET_INITIALIZED ='SET_INITIALIZED';
 
 const initialState = {
+  initialized: false,
   id: null,
   email: null,
   login: null,
@@ -13,6 +15,12 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_INITIALIZED: {
+      return {
+        ...state,
+        initialized: true
+      }
+    }
     case SET_USER_DATA: {
       return {
         ...state,
@@ -24,11 +32,22 @@ const authReducer = (state = initialState, action) => {
   }
 }
 
+export const initializedSucsess = () => ({type: SET_INITIALIZED});
+
 export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, data: {id, email, login, isAuth}});
+
+export const initializeApp = () => (dispatch) => {
+  const dispatchResult = dispatch(checkLogin());
+  // debugger;
+  dispatchResult.then(() => {
+    // debugger;
+    dispatch(initializedSucsess());
+  });
+}
 
 export const checkLogin = () => {
   return (dispatch) => {
-    userAPI.checkLogin().then(data => {
+    return userAPI.checkLogin().then(data => {
       if (data.resultCode === 0) {
         const {id, login, email} = data.data;
         dispatch(setAuthUserData(id, email, login, true));
