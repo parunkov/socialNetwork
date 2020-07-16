@@ -38,16 +38,12 @@ export const checkLogin = () => {
 }
 
 export const login = (email, password, rememberMe) => (dispatch) => {
-  const action = stopSubmit("login", {_error: "Email or password is wrong"});
-      dispatch(action);
-      return;
   userAPI.login(email, password, rememberMe).then(data => {
-    // console.log(data);
     if (data.resultCode === 0) {
       dispatch(checkLogin());
     } else {
-      // const message = data.messages > 0 ? data.messages[0] : "Email is wrong";
-      // dispatch(stopSubmit("login", {login: message}));
+      const message = data.messages.length > 0 ? data.messages[0] : "Email or password is wrong";
+      dispatch(stopSubmit("login", {_error: message}));
     }
   });
 }

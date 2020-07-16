@@ -12,6 +12,9 @@ class ProfileContainer extends React.Component {
 		let userId = this.props.match.params.userId;
 		if (!userId) {
 			userId = 9022;
+			// console.log(window.store.getState());
+			// debugger;
+			// userId = this.props.authorizedUserId;
 		}
 		this.props.getProfile(userId);
 		// setTimeout(() => {
@@ -20,14 +23,21 @@ class ProfileContainer extends React.Component {
 	}
 	render() {
 		return (
-			<Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
+			<Profile 
+				{...this.props} 
+				profile={this.props.profile} 
+				status={this.props.status} 
+				updateStatus={this.props.updateStatus} 
+			/>
 		);
 	}
 }
 
 const mapStateToProps = (state) => ({
 	profile: state.profile.profile,
-	status: state.profile.status
+	status: state.profile.status,
+	authorizedUserId: state.auth.userId,
+	isAuth: state.auth.isAuth
 });
 
 export default compose(
