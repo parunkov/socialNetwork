@@ -5,16 +5,19 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/redux-store';
 import {Provider} from 'react-redux';
+import {BrowserRouter} from 'react-router-dom';
 
 // export const rerender = (state) => {
 	ReactDOM.render(
-	  <React.StrictMode>
-	    <Provider store={store}>
-	    	<App />
-	    </Provider>
-	  </React.StrictMode>,
-	  document.getElementById('root')
-	);
+		<React.StrictMode>
+			<BrowserRouter>
+				<Provider store={store}>
+					<App />
+				</Provider>
+			</BrowserRouter>
+		</React.StrictMode>,
+		document.getElementById('root')
+		);
 // }
 // rerender(store.getState());
 

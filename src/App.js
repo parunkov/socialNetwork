@@ -9,7 +9,7 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
-import {Route, BrowserRouter} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {initializeApp} from './redux/app-reducer';
 import {connect} from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
@@ -17,7 +17,6 @@ import Preloader from './components/common/Preloader/Preloader';
 class App extends React.Component {
 
   componentDidMount() {
-     // this.props.checkLogin();
      this.props.initializeApp();
   }
 
@@ -28,7 +27,7 @@ class App extends React.Component {
     }
 
     return (
-      <BrowserRouter>
+      // <BrowserRouter>
         <div className="app-wrapper">
           <HeaderContainer />
           <Navbar />
@@ -46,7 +45,7 @@ class App extends React.Component {
             <Route path="/login" render={() => <LoginPage />} />
           </div>
         </div>
-      </BrowserRouter>
+      // </BrowserRouter>
     );
   }
 }
