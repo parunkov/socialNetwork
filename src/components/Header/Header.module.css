@@ -1,0 +1,13 @@
+.header {
+  grid-area: header;
+  background: green;
+}
+.loginBlock {
+	float: right;
+	margin-top: 15px;
+	margin-right: 20px;
+	color: white;
+}
+.loginBlock a {
+	color: white;
+}
