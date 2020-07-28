@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "82c720a3ac0aa27a184fd838047dbc54",
+    "revision": "259fdbcac523965ea7ecf9645526f5ad",
     "url": "/parunkov/socialNetwork/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/parunkov/socialNetwork/static/css/4.8b904ba3.chunk.css"
   },
   {
-    "revision": "654ac3e4829efa985e71",
+    "revision": "1fdecd7c97288a9f5176",
     "url": "/parunkov/socialNetwork/static/css/main.7d3876a8.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/parunkov/socialNetwork/static/js/4.0f75dbc8.chunk.js"
   },
   {
-    "revision": "654ac3e4829efa985e71",
-    "url": "/parunkov/socialNetwork/static/js/main.66b7ed35.chunk.js"
+    "revision": "1fdecd7c97288a9f5176",
+    "url": "/parunkov/socialNetwork/static/js/main.37b7a9bd.chunk.js"
   },
   {
     "revision": "84c34946d1d809fae91f",
