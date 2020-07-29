@@ -1,4 +1,19 @@
 .descripionBlock {
 	display: block;
 	padding: 10px;
+	padding-left: 0;
+}
+.infoBlock {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.mainPhoto{
+	max-width: 200px;
+}
+.fileInput {
+	display: block;
+	margin-top: 10px;
+}
+.contact {
+	padding-left: 15px;
 }

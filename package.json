@@ -2,7 +2,7 @@
   "name": "react4",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/parunkov/socialNetwork",
+  "homepage": "https://github.com/socialNetwork",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -18,7 +18,8 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
