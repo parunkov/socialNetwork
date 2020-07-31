@@ -10,9 +10,15 @@ import styles from './Login.module.css';
 const LoginForm = ({handleSubmit, error}) => {
 	return (
 		<form onSubmit={handleSubmit}>
-			{createField("Login", "login", Input, [required])}
-			{createField("Password", "password", Input, [required], {type: "password"})}
-			{createField(null, "rememberMe", Input, [], {type: "checkbox"}, 'Remember me')}
+			<div>
+				{createField("Login", "login", Input, [required])}
+			</div>
+			<div>
+				{createField("Password", "password", Input, [required], {type: "password"})}
+			</div>
+			<div>
+				{createField(null, "rememberMe", Input, [], {type: "checkbox"}, 'Remember me')}
+			</div>
 			{error && <div className={styles.formSummeryError}>
 				{error}
 			</div>}
