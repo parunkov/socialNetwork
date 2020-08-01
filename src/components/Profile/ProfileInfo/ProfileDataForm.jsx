@@ -4,6 +4,7 @@ import {createField, Input, Textarea} from '../../common/FormsControls/FormsCont
 import {reduxForm} from 'redux-form';
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
+	// console.log(profile.contacts.facebook);
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
@@ -27,8 +28,9 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
 			<div>
 				<b>Contacns:</b> {Object.keys(profile.contacts).map(key => {
 					return (
-						<div className={styles.contact}>
+						<div className={styles.contact} key={key}> 
 							<b>{key}:</b> {createField(key, 'contacts.' + key, Input, [])}
+						}
 						</div>
 					)
 				})}
