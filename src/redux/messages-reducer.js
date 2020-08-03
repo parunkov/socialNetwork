@@ -26,7 +26,7 @@ const messagesReducer = (state = initialState, action) => {
 			return {
 				...state,
 				messagesData: [...state.messagesData, {
-					id: 4,
+					id: (state.messagesData.length + 1),
 					message: action.newMessageText
 				}]
 			};

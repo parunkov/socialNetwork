@@ -3,7 +3,7 @@ import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import Music from './components/Music/Music';
-import News from './components/News/News';
+import NewsContainer from './components/News/NewsContainer';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
@@ -53,7 +53,7 @@ class App extends React.Component {
               <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
               <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)} />
               <Route path="/music" render={() => <Music />} />
-              <Route path="/news" render={() => <News />} />
+              <Route path="/news" render={() => <NewsContainer />} />
               <Route path="/settings" render={() => <Settings />} />
               <Route path="/users" render={() => <UsersContainer />} />
               <Route path="/login/facebook" render={() => <div className="">Facebook</div>} />
@@ -70,11 +70,6 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 });
-
-// export default compose(
-//   withRouter,
-//   connect(mapStateToProps, {initializeApp})
-// )(App);
 
 const AppContainer = compose(
   withRouter,
