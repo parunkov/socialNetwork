@@ -94,9 +94,13 @@ export const getStatus = (userId) => async (dispatch) => {
 	dispatch(setStatus(response.data));
 }
 export const updateStatus = (status) => async (dispatch) => {
-	const response = await profileAPI.updateStatus(status);
-	if (response.resultCode === 0) {
-		dispatch(setStatus(status));
+	try {
+		const response = await profileAPI.updateStatus(status);
+		if (response.resultCode === 0) {
+			dispatch(setStatus(status));
+		}
+	} catch(error) {
+		// debugger;
 	}
 }
 export const savePhoto = (file) => async (dispatch) => {
@@ -113,10 +117,8 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
 	if (response.data.resultCode === 0) {
 		dispatch(getProfile(userId));
 	} else {
-		// console.log(response.data.messages[0]);
-		// debugger;
 		dispatch(stopSubmit('edit-profile', {_error: response.data.messages[0]}));
-		// return Promise.reject({error: response.data.messages[0]});
+		return Promise.reject({error: response.data.messages[0]});
 	}
 }
 
