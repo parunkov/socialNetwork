@@ -13,6 +13,7 @@ const newsReducer = (state = initialState, action) => {
 				...state,
 				news: [ ...state.news,
 				{
+					id: (state.news.length + 1),
 					date: action.date,
 					title: action.title,
 					text: action.text
@@ -26,9 +27,9 @@ const newsReducer = (state = initialState, action) => {
 
 export const addNews = (date, title, text) => ({
 	type: ADD_NEWS,
-	date: date,
-	title: title,
-	text: text
+	date,
+	title,
+	text
 });
 
 export default newsReducer;
