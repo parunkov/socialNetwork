@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './Paginator.module.css';
 import cn from 'classnames';
 
@@ -8,11 +8,11 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 	for (let i = 1; i <= pagesCount ; i += 1) {
 		pages.push(i);
 	}
-
 	const portionCount = Math.ceil(pagesCount / portionSize);
 	const [portionNumber, setPortionNumber] = useState(1);
 	const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
 	const rightPortionPageNumber = portionNumber * portionSize;
+
 	const onPortionCanged = (portionNumber) => {
 		let currentPageNumber = 1;
 		if (portionNumber === 1) {
@@ -25,6 +25,35 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 		onPageChanged(currentPageNumber);
 	}
 
+	const [editMode, setEditMode] = useState(false);
+	const [inputValue, setInputValue] = useState(currentPage);
+	useEffect(() => {
+		setInputValue(currentPage);
+	}, [currentPage]);
+	const onInputChange = (e) => {
+		setInputValue(e.currentTarget.value);
+	}
+
+
+	const CurrentPageElement = ({p}) => {
+		if (!editMode) {
+			return <span className={cn(styles.selectedPage, styles.pageNumber)} onClick={
+				(e) => {setEditMode(true)}
+			} key={p}>{p}</span>
+		} else {
+			return <input onChange={onInputChange} onBlur={
+				(e) => {
+					let inputNumber = Math.floor(+e.currentTarget.value);
+					if (inputNumber < 1) inputNumber = 1;
+					if (inputNumber > pagesCount) inputNumber = pagesCount;
+					setEditMode(false);
+					currentPage = inputNumber;
+					onPageChanged(inputNumber);
+					setPortionNumber(Math.ceil(inputNumber / portionSize));
+				}
+			} autoFocus={true} type="number" step="1" min="1" max="{pagesCount}" value={inputValue} />
+		}
+	}
 	return(
 		<div className={styles.pagination}>
 			{
@@ -42,13 +71,13 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 			}
 			{
 				pages
-					.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-					.map(p => {							
-						return <span className={
-							cn({
-								[styles.selectedPage]: currentPage === p
-							}, styles.pageNumber)
-						} onClick={(e) => {onPageChanged(p)}} key={p}>{p}</span>
+					.filter(p => p >= leftPortionPageNumber - 1 && p <= rightPortionPageNumber)
+					.map(p => {	
+						if (p === currentPage) {
+							return <CurrentPageElement p={p} />
+						} else {
+							return <span className={styles.pageNumber} onClick={(e) => {onPageChanged(p)}} key={p}>{p}</span>
+						}
 					})
 			}
 			{
