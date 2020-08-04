@@ -13,6 +13,17 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 	const [portionNumber, setPortionNumber] = useState(1);
 	const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
 	const rightPortionPageNumber = portionNumber * portionSize;
+	const onPortionCanged = (portionNumber) => {
+		let currentPageNumber = 1;
+		if (portionNumber === 1) {
+			currentPageNumber = 1;
+		} else if (portionNumber === portionSize) {
+			currentPageNumber = pagesCount;
+		} else {
+			currentPageNumber = (portionNumber - 1) * portionSize + 5;
+		}
+		onPageChanged(currentPageNumber);
+	}
 
 	return(
 		<div className={styles.pagination}>
@@ -23,7 +34,10 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 							onPageChanged(1);
 							setPortionNumber(1);
 						}}>1</button>
-					<button onClick={() => {setPortionNumber(portionNumber - 1)}}>Prev</button>
+					<button onClick={() => {
+						setPortionNumber(portionNumber - 1);
+						onPortionCanged(portionNumber - 1);
+					}}>Prev</button>
 				</span>
 			}
 			{
@@ -40,7 +54,10 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 			{
 				portionCount > portionNumber && 
 				<span>
-					<button onClick={() => {setPortionNumber(portionNumber + 1)}}>Next</button>
+					<button onClick={() => {
+						setPortionNumber(portionNumber + 1);
+						onPortionCanged(portionNumber + 1);
+					}}>Next</button>
 					<button className="" onClick={(e) => {
 						onPageChanged(pagesCount);
 						setPortionNumber(portionCount);
