@@ -29,14 +29,16 @@ const NewsReduxForm = reduxForm({
 })(NewsForm);
 
 
-const News = ({news}) => {
+const News = ({news, addNews}) => {
+
+	const onSubmit = (formData) => addNews(new Date(), formData.newsTitle, formData.newsText);
 
 	const newsElements = news.map(news => <NewsItem key={news.id} date={news.date} title={news.title} text={news.text} />);
 
 	return (
 		<div>
 			<h2 className="">Add news</h2>
-			<NewsReduxForm />
+			<NewsReduxForm onSubmit={onSubmit} />
 			<h1>News list</h1>
 			<div className="">
 				{newsElements}
