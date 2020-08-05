@@ -11,6 +11,7 @@ const TOGGLE_IS_FOLLOWING_PGOGRESS ='users/TOGGLE_IS_FOLLOWING_PGOGRESS';
 
 const initialState = {
 	users: [],
+	frends: [],
 	pageSize: 10,
 	totalUsersCount: 0,
 	currentPage: 1,
@@ -23,13 +24,19 @@ const usersReducer = (state = initialState, action) => {
 		case FOLLOW: {
 			return {
 				...state,
-				users: updateObjectInArray(state.users, action.userId, 'id', {followed: false})
+				users: updateObjectInArray(state.users, action.userId, 'id', {followed: false}),
+				frends: state.frends.filter(item => item.id !== action.userId)
 			}
 		}
 		case UNFOLLOW: {
 			return {
 				...state,
-				users: updateObjectInArray(state.users, action.userId, 'id', {followed: true})
+				users: updateObjectInArray(state.users, action.userId, 'id', {followed: true}),
+				frends: [...state.frends, {
+					id: action.userId,
+					name: state.users.filter(item => item.id === action.userId)[0].name,
+					photo: state.users.filter(item => item.id === action.userId)[0].photos.small
+				}]
 			}
 		}
 		case SET_USERS: {
