@@ -1,10 +1,15 @@
 .nav {
   padding: 20px;	
   grid-area: nav;
-  background: brown;
+  background: #1467C1;
+  border-radius: 5px 5px 0 0;
 }
 .item {
 	color: white;
+	padding: 10px;
+}
+.item:hover {
+	font-weight: 700;
 }
 .item a {
 	text-decoration: none;
@@ -12,4 +17,6 @@
 }
 .item a.activeLink {
 	color: gold;
+	font-weight: 700;
+	cursor: default;
 }

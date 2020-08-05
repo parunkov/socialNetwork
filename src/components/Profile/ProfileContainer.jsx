@@ -2,6 +2,7 @@ import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
 import {setUserProfile, getProfile, getStatus, updateStatus, savePhoto, savePhotoSucsess, saveProfile, getFollowing} from '../../redux/profile-reducer';
+import {getFrends} from '../../redux/users-reucer';
 import {getMessagesPhoto} from './../../redux/messages-reducer';
 import {withRouter} from 'react-router-dom';
 import {compose} from 'redux';
@@ -19,6 +20,7 @@ class ProfileContainer extends React.Component {
 		this.props.getProfile(userId);
 		this.props.getStatus(userId);
 		this.props.getFollowing(userId);
+		this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
 	}
 	componentDidMount() {
 		this.refreshProfile();
@@ -52,6 +54,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-	connect(mapStateToProps, {setUserProfile, getProfile, getStatus, updateStatus, savePhoto, savePhotoSucsess, saveProfile, getFollowing,  getMessagesPhoto}),
+	connect(mapStateToProps, {setUserProfile, getProfile, getStatus, updateStatus, savePhoto, savePhotoSucsess, saveProfile, getFollowing,  getMessagesPhoto, getFrends}),
 	withRouter,
 	)(ProfileContainer);

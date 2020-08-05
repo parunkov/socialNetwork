@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './MyPosts.module.css';
+import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 import {reduxForm, Field} from 'redux-form';
 import {required, maxLengthCreator} from '../../../utils/validators/validators';
@@ -17,7 +17,7 @@ const MyPosts = React.memo((props) => {
 				<div className="">
 					<Field component={Textarea} name={"post"} cols="30" rows="5" placeholder="Add post" validate={[required, maxLength10]} />
 				</div>
-				<div className={classes.btn}>
+				<div className={styles.btn}>
 					<button type="submit">Add post</button>
 				</div>
 			</form>
@@ -33,7 +33,7 @@ const MyPosts = React.memo((props) => {
 	}
 
 	return (
-		<div className={classes.postBlock}>
+		<div className={styles.postBlock}>
 			<div className="">
 				<h3>My posts</h3>
 				<div className="">New post</div>

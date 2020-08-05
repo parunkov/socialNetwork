@@ -1,12 +1,37 @@
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Myraid";
+  src: url("../src/fonts/Myriad-Pro_31655.ttf") format("truetype");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Myraid";
+  src: url("../src/fonts/Myriad-Pro-Bold_31631.ttf") format("truetype");
+}
+
 body {
+  font-size: 16px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Myraid';
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;*/
 }
-
+button {
+  font-family: 'Myraid';
+  border: 2px solid #1467C1;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #1467C1;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

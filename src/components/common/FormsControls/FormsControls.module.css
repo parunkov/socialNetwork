@@ -3,7 +3,8 @@
 	position: relative;	
 }
 .formControl input, .formControl textarea {
-	border: 2px solid transparent;
+	border: 1px solid #1467C1;
+	border-radius: 5px;
 }
 .formControl.error input, .formControl.error textarea {
 	border: 2px solid red;

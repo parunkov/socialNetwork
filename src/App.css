@@ -1,4 +1,6 @@
 .app-wrapper {
+  width: 700px;
+  margin: 0 auto;
   display: grid;
   grid-template-areas: 
   "header header"
@@ -12,5 +14,5 @@
 
 .app-wrapper-content {
   grid-area: content;
-  background: cornflowerblue;
+  background: white;
 }
