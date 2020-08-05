@@ -6,8 +6,9 @@ const UNFOLLOW = 'users/UNFOLLOW';
 const SET_USERS = 'users/SET-USERS';
 const SET_CURRENT_PAGE = 'users/SET-CURRENT-PAGE';
 const SET_TOTAL_USERS_COUNT = 'users/SET-TOTAL-USERS-COUNT';
-const TOGGLE_IS_FETCHING ='users/TOGGLE-IS-FETCHING';
-const TOGGLE_IS_FOLLOWING_PGOGRESS ='users/TOGGLE_IS_FOLLOWING_PGOGRESS';
+const TOGGLE_IS_FETCHING = 'users/TOGGLE-IS-FETCHING';
+const TOGGLE_IS_FOLLOWING_PGOGRESS = 'users/TOGGLE_IS_FOLLOWING_PGOGRESS';
+const GET_FREDNDS = 'users/GET_FREDNDS';
 
 const initialState = {
 	users: [],
@@ -71,6 +72,12 @@ const usersReducer = (state = initialState, action) => {
 				: state.followingInProgress.filter(id => id !== action.userId)
 			}
 		}
+		case GET_FREDNDS: {
+			return {
+				...state,
+				...action.payload
+			}
+		}
 		default:
 			return state;
 	}
@@ -106,6 +113,10 @@ export const toggleFollowingInProgress = (followingInProgress, userId) => ({
 	type:TOGGLE_IS_FOLLOWING_PGOGRESS,
 	followingInProgress,
 	userId
+});
+export const getFrends = (frends) => ({
+	type: GET_FREDNDS,
+	payload: {frends}
 });
 
 export const getUsers = (currentPage, pageSize) => async (dispatch) => {

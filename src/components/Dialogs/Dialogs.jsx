@@ -7,14 +7,10 @@ import {required, maxLengthCreator} from '../../utils/validators/validators';
 import {Textarea} from '../common/FormsControls/FormsControls';
 
 const Dialogs = (props) => {
-
-	// console.log(props.isAuth);
-
+	props.getMessagesPhoto(props.userId);
 	const maxLength100 = maxLengthCreator(100);
-
 	const dialogsElements = props.dialogsData.map(data => <DialogsItem name={data.name} key={data.id} id={data.id} />);
-	const messagesElements = props.messagesData.map(message => <Message message={message.message} key={message.id} />);
-	// const newMessage = React.createRef();
+	const messagesElements = props.messagesData.map(message => <Message message={message.message} key={message.id} messagesPhoto={props.messagesPhoto} />);
 
 	const MessageForm = (props) => {
 		return(

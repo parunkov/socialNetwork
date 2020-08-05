@@ -6,7 +6,7 @@ import userPhoto from './../../../assets/images/i.webp';
 import ProfileDataForm from './ProfileDataForm';
 
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile, ...props}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile, isFollow, ...props}) => {
 
 	const [editMode, setEditMode] = useState(false);
 
@@ -27,14 +27,8 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 			}
 		);
 	}
-
-	// console.log(profile);
-
 	return (
 		<div className={styles.infoBlock}>
-			{/*<div>
-				<img src="https://wallup.net/wp-content/uploads/2019/09/682919-woodenpath.jpg" width="600" alt=""/>
-			</div>*/}
 			<img className={styles.mainPhoto} src={profile.photos.large || userPhoto} alt="" />
 			{isOwner && <input className={styles.fileInput} type="file" onChange={onMainPhotoSelected} />}
 
@@ -42,10 +36,6 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 				<ProfileDataForm initialValues={profile} onSubmit={onSubmit} profile={profile} />
 				: <ProfileData goToEditMode={() => {setEditMode(true)}} isOwner={isOwner} profile={profile} />
 			}
-			{/*<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.facebook}>Facebook</a>
-			<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.vk}>VK</a>
-			<a className={styles.descripionBlock} href={'http://' + props.profile.contacts.twitter}>Twitter</a>*/}
-			{/*<div className={styles.descripionBlock}>ava + descripion</div>*/}
 			<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 		</div>
 	)

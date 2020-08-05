@@ -3,7 +3,8 @@ import {
 		follow, 
 		unfollow, 
 		setCurrentPage, 
-		getUsers
+		getUsers,
+		getFrends
 	} from './../../redux/users-reucer';
 import {connect} from 'react-redux';
 import Users from './Users';
@@ -15,12 +16,19 @@ class UsersContainer extends React.Component {
 	componentDidMount() {
 		const {currentPage, pageSize} = this.props;
 		this.props.getUsers(currentPage, pageSize);
+		this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
 	}
 
 	onPageChanged = (pageNumber) => {
 		const {setCurrentPage, getUsers, pageSize} = this.props;
 		setCurrentPage(pageNumber);
 		getUsers(pageNumber, pageSize);
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.frends !== prevProps.frends) {
+			localStorage.setItem('frends', JSON.stringify(this.props.frends));
+		}
 	}
 
 	render() {
@@ -49,8 +57,9 @@ const mapStateToProps = (state) => {
 		totalUsersCount: getTotalUsersCount(state),
 		currentPage: getCurrentPage(state),
 		isFetching: getIsFetching(state),
-		followingInProgress: getFollowingInProgress(state)
+		followingInProgress: getFollowingInProgress(state),
+		frends: state.usersPage.frends
 	}
 }
 
-export default connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers})(UsersContainer);
+export default connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers, getFrends})(UsersContainer);

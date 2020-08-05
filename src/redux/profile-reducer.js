@@ -1,4 +1,4 @@
-import {profileAPI} from '../api/api';
+import {profileAPI, userAPI} from '../api/api';
 import {stopSubmit} from 'redux-form';
 
 const ADD_POST = 'profile/ADD-POST';
@@ -6,6 +6,7 @@ const SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
 const SET_STATUS ='profile/SET-STATUS';
 const DELETE_POST = 'profile/DELETE-POST';
 const SAVE_PHOTO_SUCSESS = 'profile/SAVE_PHOTO_SUCSESS';
+const SET_FOLLOWING = 'profile/SET_FOLLOWING';
 
 const postsData = [
 		{id: 1, text: 'Hi. How are you?', likesCount: 12},
@@ -58,6 +59,12 @@ const profileReducer = (state = initialState, action) => {
 				}
 			}
 		}
+		case SET_FOLLOWING: {
+			return {
+				...state,
+				isFollow: action.isFollow
+			}
+		}
 		default:
 			return state;
 	}
@@ -83,8 +90,15 @@ export const savePhotoSucsess = (photos) => ({
 	type: SAVE_PHOTO_SUCSESS, 
 	photos
 });
+const setFollowing = (isFollow) => ({
+	type: SET_FOLLOWING,
+	isFollow
+})
 
-
+export const getFollowing = (userId) => async dispatch => {
+	const isFollow = await userAPI.checkFollowing(userId);
+	dispatch(setFollowing(isFollow));
+}
 export const getProfile = (userId) => async (dispatch) => {
 	const data = await profileAPI.getProfile(userId);
 	dispatch(setUserProfile(data));
@@ -111,9 +125,7 @@ export const savePhoto = (file) => async (dispatch) => {
 }
 export const saveProfile = (profile) => async (dispatch, getState) => {
 	const userId = getState().auth.id;
-	// console.log(userId);
 	const response = await profileAPI.saveProfile(profile);
-	// debugger;
 	if (response.data.resultCode === 0) {
 		dispatch(getProfile(userId));
 	} else {

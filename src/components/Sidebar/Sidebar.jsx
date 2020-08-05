@@ -16,12 +16,17 @@ const SidebarItem = ({userId, userName, photo}) => {
 	)
 }
 
-const Sidebar = ({frends}) => {
-	console.log(frends);
+const Sidebar = ({frends, getFrends}) => {
+	const onClearBtnClick = () => {
+		localStorage.setItem('frends', JSON.stringify([]));
+		getFrends([]);
+	}
+
 	return (
 		<div className={styles.sidebar}>
 			<div className={styles.sidebar__header}>Frends</div>
 			{frends.map(item => <SidebarItem key={item.id} userId={item.id} userName={item.name} photo={item.photo} /> )}
+			{(frends.length !== 0) && <button onClick={onClearBtnClick}>Clear all</button>}
 		</div>
 	)
 }

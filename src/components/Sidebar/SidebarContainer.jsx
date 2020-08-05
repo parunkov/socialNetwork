@@ -1,5 +1,6 @@
 import Sidebar from './Sidebar';
 import {connect} from 'react-redux';
+import {getFrends} from '../../redux/users-reucer';
 
 const mapStateToProps = (state) => {
 	return {
@@ -7,4 +8,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {})(Sidebar);
+export default connect(mapStateToProps, {getFrends})(Sidebar);

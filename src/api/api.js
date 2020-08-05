@@ -24,6 +24,11 @@ export const userAPI = {
 			return response.data
 		});
 	},
+	checkFollowing(userId) {
+		return instance.get(`follow/${userId}`).then(response => {
+			return response.data
+		});
+	},
 	checkLogin() {
 		return instance.get(`auth/me`).then(response => {
 			return response.data
