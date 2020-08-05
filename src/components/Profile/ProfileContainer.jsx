@@ -2,6 +2,7 @@ import React from 'react';
 import Profile from './Profile';
 import {connect} from 'react-redux';
 import {setUserProfile, getProfile, getStatus, updateStatus, savePhoto, savePhotoSucsess, saveProfile, getFollowing} from '../../redux/profile-reducer';
+import {getMessagesPhoto} from './../../redux/messages-reducer';
 import {withRouter} from 'react-router-dom';
 import {compose} from 'redux';
 
@@ -21,6 +22,7 @@ class ProfileContainer extends React.Component {
 	}
 	componentDidMount() {
 		this.refreshProfile();
+		this.props.getMessagesPhoto(this.props.authorizedUserId);
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.props.match.params.userId !== prevProps.match.params.userId) {
@@ -46,10 +48,10 @@ const mapStateToProps = (state) => ({
 	status: state.profile.status,
 	authorizedUserId: state.auth.id,
 	isAuth: state.auth.isAuth,
-	isFollow: state.profile.isFollow
+	isFollow: state.profile.isFollow,
 });
 
 export default compose(
-	connect(mapStateToProps, {setUserProfile, getProfile, getStatus, updateStatus, savePhoto, savePhotoSucsess, saveProfile, getFollowing}),
+	connect(mapStateToProps, {setUserProfile, getProfile, getStatus, updateStatus, savePhoto, savePhotoSucsess, saveProfile, getFollowing,  getMessagesPhoto}),
 	withRouter,
 	)(ProfileContainer);

@@ -1,4 +1,4 @@
-import {addMessage, getMessagesPhoto} from './../../redux/messages-reducer'
+import {addMessage, getMessagesPhoto} from './../../redux/messages-reducer';
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';

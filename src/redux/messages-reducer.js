@@ -3,14 +3,14 @@ import {profileAPI} from '../api/api';
 const ADD_MESSAGE = 'messages/ADD-MESSAGE';
 const ADD_MESSAGES_PHOTO = 'messages/ADD_MESSAGES_PHOTO';
 
-const data = ['Andrey', 'Galina', 'Anna', 'Maxim', 'Tanya'];
+const data = ['Michael', 'David', 'Emily', 'Samuel', 'Rachel'];
 	const dialogsData = [];
 	for (let i = 0; i < data.length; i++) {
 		dialogsData[i] = {};
 		dialogsData[i].id = i + 1;
 		dialogsData[i].name = data[i];
 	}
-const messages = ['Hi', 'How are you?', 'Yo'];
+const messages = ['Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'Rem molestiae consectetur, quibusdam maxime veniam sit eius harum recusandae, natus possimus aperiam non accusantium quod, deserunt asperiores similique repellat nisi vitae voluptatibus.', 'Ipsam odio, modi sed! Rerum expedita, quos molestiae cum modi placeat, rem explicabo assumenda repellat itaque quis, dolor numquam.'];
 	const messagesData = [];
 	for (let i = 0; i < messages.length; i++) {
 		messagesData[i] = {};

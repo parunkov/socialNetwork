@@ -9,8 +9,8 @@ const SAVE_PHOTO_SUCSESS = 'profile/SAVE_PHOTO_SUCSESS';
 const SET_FOLLOWING = 'profile/SET_FOLLOWING';
 
 const postsData = [
-		{id: 1, text: 'Hi. How are you?', likesCount: 12},
-		{id: 2, text: "It's my first post.", likesCount: 11}
+		{id: 1, text: 'Magni quam optio laborum ad ipsa ab tempore necessitatibus explicabo delectus.', likesCount: 12},
+		{id: 2, text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", likesCount: 11}
 	]
 const initialState = {
 	postsData: postsData,
