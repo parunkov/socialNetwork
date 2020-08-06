@@ -4,8 +4,12 @@
 	padding-left: 0;
 }
 .infoBlock {
-	margin-top: 10px;
-	margin-left: 10px;
+	grid-area: info;
+	border: 1px solid red;
+	/*grid-column: 2;
+	  grid-row: 2;*/
+	/*margin-top: 10px;
+	margin-left: 10px;*/
 }
 .mainPhoto{
 	max-width: 200px;

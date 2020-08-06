@@ -1,9 +1,19 @@
 .dialogs {
 	display: grid;
-	grid-template-columns: 2fr 10fr;
+	grid-template-columns: 200px 1fr;
+	grid-template-areas: 
+	"item messages";
+	@media (max-width: 850px) {
+		grid-template-areas: 
+		"item" 
+		"messages";
+		grid-template-columns: none;
+		// grid-template-rows: 1fr 1fr;
+	}
 }
 .dialogsItems {
 	padding: 10px;
+	grid-area: item;
 }
 .dialog {
 
@@ -13,6 +23,7 @@
 }
 .messages {
 	padding: 10px;
+	grid-area: messages;
 }
 .message {
 	display: grid;

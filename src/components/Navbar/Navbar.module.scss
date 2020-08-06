@@ -1,6 +1,8 @@
 .nav {
   padding: 20px;	
-  grid-area: nav;
+  /*grid-area: nav;*/
+  grid-column: 1;
+  grid-row: 2;
   background: #1467C1;
   border-radius: 5px 5px 0 0;
 }
@@ -19,4 +21,10 @@
 	color: gold;
 	font-weight: 700;
 	cursor: default;
+}
+.login {
+	display: none;
+	@media (max-width: 700px) {
+		display: block;
+	}
 }

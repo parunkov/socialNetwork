@@ -1,12 +1,13 @@
 import React from 'react';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import styles from './Profile.module.scss';
 
 
 const Profile = (props) => {
 
 	return (
-		<div>
+		<div className={styles.profile}>
 			<ProfileInfo 
 				savePhoto={props.savePhoto} 
 				isOwner={props.isOwner} 

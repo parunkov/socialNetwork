@@ -3,6 +3,7 @@ import {createField, Input, Textarea} from '../common/FormsControls/FormsControl
 import {required} from '../../utils/validators/validators';
 import {reduxForm} from 'redux-form';
 import NewsItem from './NewsItem';
+import styles from './News.module.scss';
 
 const NewsForm = ({handleSubmit, error}) => {
 	return (
@@ -36,12 +37,16 @@ const News = ({news, addNews}) => {
 	const newsElements = news.map(news => <NewsItem key={news.id} date={news.date} title={news.title} text={news.text} />);
 
 	return (
-		<div>
-			<h2 className="">Add news</h2>
-			<NewsReduxForm onSubmit={onSubmit} />
-			<h1>News list</h1>
-			<div className="">
-				{newsElements}
+		<div className={styles.news}>
+			<div className={styles.form}>
+				<h2 className="">Add news</h2>
+				<NewsReduxForm onSubmit={onSubmit} />
+			</div>
+			<div className={styles.newsList}>
+				<h1>News list</h1>
+				<div className="">
+					{newsElements}
+				</div>
 			</div>
 		</div>
 	);

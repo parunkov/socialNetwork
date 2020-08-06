@@ -1,0 +1,19 @@
+.news {
+	display: grid;
+	grid-template-columns: 1fr 250px;
+	grid-template-areas: 
+	"news form";
+	@media (max-width: 850px) {
+		grid-template-areas: 
+		"news" 
+		"form";
+		grid-template-columns: none;
+		// grid-template-rows: 1fr 1fr;
+	}
+}
+.newsList {
+	grid-area: news;
+}
+.form {
+	grid-area: form;
+}

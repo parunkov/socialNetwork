@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import HeaderContainer from './components/Header/HeaderContainer';
+import './App.scss';
+import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Music from './components/Music/Music';
 import NewsContainer from './components/News/NewsContainer';
@@ -9,6 +9,7 @@ import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
 import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
 import {initializeApp} from './redux/app-reducer';
+import { getFrends } from './redux/users-reucer';
 import {connect} from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
 import {compose} from 'redux';
@@ -30,6 +31,7 @@ class App extends React.Component {
   componentDidMount() {
      this.props.initializeApp();
      window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+     this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
   }
 
   componentWillUnmount() {
@@ -44,22 +46,24 @@ class App extends React.Component {
 
     return (
       // <BrowserRouter>
-        <div className="app-wrapper">
-          <HeaderContainer />
-          <Navbar />
-          <div className="app-wrapper-content">
-            <Switch>
-              <Route exact path="/" render={() => <Redirect to="/profile" />} />
-              <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-              <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)} />
-              <Route path="/music" render={() => <Music />} />
-              <Route path="/news" render={() => <NewsContainer />} />
-              <Route path="/settings" render={() => <Settings />} />
-              <Route path="/users" render={() => <UsersContainer />} />
-              <Route path="/login/facebook" render={() => <div className="">Facebook</div>} />
-              <Route path="/login" render={() => <LoginPage />} />
-              <Route path="*" render={() => <div className="">404 NOT FOUND</div>} />
-            </Switch>
+        <div className="app">
+          <Header />
+          <div className="app-wrapper">
+            <Navbar />
+            <div className="app-wrapper-content">
+              <Switch>
+                <Route exact path="/" render={() => <Redirect to="/profile" />} />
+                <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+                <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)} />
+                <Route path="/music" render={() => <Music />} />
+                <Route path="/news" render={() => <NewsContainer />} />
+                <Route path="/settings" render={() => <Settings />} />
+                <Route path="/users" render={() => <UsersContainer />} />
+                <Route path="/login/facebook" render={() => <div className="">Facebook</div>} />
+                <Route path="/login" render={() => <LoginPage />} />
+                <Route path="*" render={() => <div className="">404 NOT FOUND</div>} />
+              </Switch>
+            </div>
           </div>
         </div>
       // </BrowserRouter>
@@ -68,12 +72,13 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
+  initialized: state.app.initialized,
+  frends: state.usersPage.frends
 });
 
 const AppContainer = compose(
   withRouter,
-  connect(mapStateToProps, {initializeApp})
+  connect(mapStateToProps, {initializeApp, getFrends})
 )(App);
 
 const TestApp = (props) => {

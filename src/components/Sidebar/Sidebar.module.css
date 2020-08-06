@@ -10,21 +10,21 @@
 }
 .sidebar__item {
 	text-align: center;
-	display: grid;
-	grid-template-areas: 
-	"image text";
-	grid-auto-columns: 1fr 2fr;
+	/*display: grid;*/
+	/*grid-template-areas: */
+	/*"image text";*/
+	/*grid-auto-columns: 1fr 2fr;*/
 }
 .sidebar__name {
 	color: white;
 	text-align: left;
 	margin-bottom: 10px;
-	grid-area: text;
+	/*grid-area: text;*/
 }
 .sidebar__avatar {
 	width: 40px;
 	text-align: center;
 	border-radius: 50%;
 	margin-bottom: 10px;
-	grid-area: image;
+	/*grid-area: image;*/
 }
