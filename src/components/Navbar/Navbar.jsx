@@ -3,16 +3,17 @@ import styles from './Navbar.module.scss';
 import {NavLink} from 'react-router-dom';
 import SidebarContainer from './../Sidebar/SidebarContainer';
 import LoginBlockContainer from '../common/LoginBlock/LoginBlockContainer';
+import cn from 'classnames';
 
 const Navbar = () => {
 	return (
 		<div>
 			<nav className={styles.nav}>
-				<div className={styles.item}>
-					<NavLink to="/profile" activeClassName={styles.activeLink}>
+				<NavLink to="/profile" activeClassName={styles.activeLink}>
+					<div className={cn(styles.item, styles.item_profile)}>
 						Profile
-					</NavLink>
-				</div>
+					</div>
+				</NavLink>
 				<div className={styles.item}>
 					<NavLink to="/dialogs" activeClassName={styles.activeLink}>
 						Messages
