@@ -23,7 +23,16 @@
 
 }
 .loginBlock a {
-	/*color: white;*/
+	display: block;
+	font-family: 'Myraid';
+  border: 2px solid #1467C1;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: #1467C1;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 .photo {
 	width: 36px;
