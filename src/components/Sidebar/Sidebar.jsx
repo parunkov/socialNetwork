@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
-import userPhoto from '../../assets/images/i.webp';
+import userPhoto from '../../assets/images/user.svg';
 import {NavLink} from 'react-router-dom';
 
 const SidebarItem = ({userId, userName, photo}) => {

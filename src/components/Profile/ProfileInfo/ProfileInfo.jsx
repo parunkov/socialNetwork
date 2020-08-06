@@ -2,7 +2,7 @@ import React, {useState}  from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
-import userPhoto from './../../../assets/images/i.webp';
+import userPhoto from './../../../assets/images/user.svg';
 import ProfileDataForm from './ProfileDataForm';
 
 
