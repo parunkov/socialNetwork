@@ -2,6 +2,7 @@
 	background: #1467C1;
 	padding: 20px;
 	border-radius: 0 0 5px 5px;
+	margin-bottom: 20px;
 }
 .sidebar__header {
 	color: white;
@@ -10,16 +11,19 @@
 }
 .sidebar__item {
 	text-align: center;
-	/*display: grid;*/
-	/*grid-template-areas: */
-	/*"image text";*/
-	/*grid-auto-columns: 1fr 2fr;*/
+	display: grid;
+	grid-template-areas: 
+	"image text";
+	grid-auto-columns: 42px 1fr;
 }
 .sidebar__name {
 	color: white;
 	text-align: left;
 	margin-bottom: 10px;
-	/*grid-area: text;*/
+	grid-area: text;
+	padding-left: 15px;
+	padding-top: 5px;
+	word-break: break-all;
 }
 .sidebar__avatar {
 	width: 40px;
@@ -28,5 +32,9 @@
 	margin-bottom: 10px;
 	background: white;
 	border: 2px solid white;
-	/*grid-area: image;*/
+	grid-area: image;
+}
+.button {
+	color: #1467C1;
+	background: white;
 }

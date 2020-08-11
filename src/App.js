@@ -14,7 +14,6 @@ import {connect} from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
 import {compose} from 'redux';
 import {withSuspense} from './hoc/withSuspense';
-
 import store from './redux/redux-store';
 import {Provider} from 'react-redux';
 import {HashRouter} from 'react-router-dom';
@@ -24,6 +23,14 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuShown: true,
+      windowWidth: window.innerWidth
+    };
+  }
+
   catchAllUnhandledErrors = (promiseRejectionEvent) => {
     // alert("Some error occured");
   }
@@ -32,10 +39,26 @@ class App extends React.Component {
      this.props.initializeApp();
      window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
      this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
+     window.addEventListener("resize", this.updateWidth);
+     this.updateWidth();
   }
 
   componentWillUnmount() {
     window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+    window.removeEventListener("resize", this.updateWidth);
+  }
+
+  updateWidth = () => {
+    this.setState({windowWidth: window.innerWidth});
+    if (window.innerWidth > 700) {
+      this.setState({menuShown: true});
+    } else {
+      this.setState({menuShown: false});
+    }
+  }
+
+  toggleMenu = () => {
+    this.setState({menuShown: !this.state.menuShown});
   }
 
   render() {
@@ -47,9 +70,9 @@ class App extends React.Component {
     return (
       // <BrowserRouter>
         <div className="app">
-          <Header />
+          <Header menuShown={this.state.menuShown} toggleMenu={this.toggleMenu} />
           <div className="app-wrapper">
-            <Navbar />
+            <Navbar menuShown={this.state.menuShown} />
             <div className="app-wrapper-content">
               <Switch>
                 <Route exact path="/" render={() => <Redirect to="/profile" />} />

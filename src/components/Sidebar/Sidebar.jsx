@@ -24,9 +24,9 @@ const Sidebar = ({frends, getFrends}) => {
 
 	return (
 		<div className={styles.sidebar}>
-			<div className={styles.sidebar__header}>Frends</div>
+			{(frends.length !== 0) && <div className={styles.sidebar__header}>Frends</div>}
 			{frends.map(item => <SidebarItem key={item.id} userId={item.id} userName={item.name} photo={item.photo} /> )}
-			{(frends.length !== 0) && <button onClick={onClearBtnClick}>Clear all</button>}
+			{(frends.length !== 0) && <button className={styles.button} onClick={onClearBtnClick}>Clear all</button>}
 		</div>
 	)
 }
