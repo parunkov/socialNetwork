@@ -1,0 +1,24 @@
+// Icons from directory ""
+%icon {
+	background-repeat: no-repeat
+}
+.icon-vectorpaint2,
+.icon-vectorpaint2\:regular {
+	@extend %icon;
+	background-image: url('icons/icons.png');
+	background-position: 0 0;
+}
+.icon-vectorpaint2-dims {
+	width: 184px;
+	height: 184px;
+}
+.icon-vectorpaint3,
+.icon-vectorpaint3\:regular {
+	@extend %icon;
+	background-image: url('icons/icons.png');
+	background-position: 0 -184px;
+}
+.icon-vectorpaint3-dims {
+	width: 184px;
+	height: 184px;
+}

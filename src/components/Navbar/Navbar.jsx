@@ -14,31 +14,31 @@ const Navbar = () => {
 						Profile
 					</div>
 				</NavLink>
-				<div className={styles.item}>
-					<NavLink to="/dialogs" activeClassName={styles.activeLink}>
+				<NavLink to="/dialogs" activeClassName={styles.activeLink}>
+					<div className={cn(styles.item, styles.item_messages)}>
 						Messages
-					</NavLink>
-				</div>
-				<div className={styles.item}>
-					<NavLink to="/news" activeClassName={styles.activeLink}>
+					</div>
+				</NavLink>
+				<NavLink to="/news" activeClassName={styles.activeLink}>
+					<div className={cn(styles.item, styles.item_news)}>
 						News
-					</NavLink>
-				</div>
-				<div className={styles.item}>
-					<NavLink to="/music" activeClassName={styles.activeLink}>
+					</div>
+				</NavLink>
+				<NavLink to="/music" activeClassName={styles.activeLink}>
+					<div className={cn(styles.item, styles.item_music)}>
 						Music
-					</NavLink>
-				</div>
-				<div className={styles.item}>
-					<NavLink to="/settings" activeClassName={styles.activeLink}>
+					</div>
+				</NavLink>
+				<NavLink to="/settings" activeClassName={styles.activeLink}>
+					<div className={cn(styles.item, styles.item_settings)}>
 						Settings
-					</NavLink>
-				</div>
-				<div className={styles.item}>
-					<NavLink to="/users" activeClassName={styles.activeLink}>
+					</div>
+				</NavLink>
+				<NavLink to="/users" activeClassName={styles.activeLink}>
+					<div className={cn(styles.item, styles.item_users)}>
 						Users
-					</NavLink>
-				</div>
+					</div>
+				</NavLink>
 			</nav>
 			<SidebarContainer />
 			<div className={styles.login}>
