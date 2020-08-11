@@ -1,5 +1,5 @@
 import React, {useState}  from 'react';
-import styles from './ProfileInfo.module.css';
+import styles from './ProfileInfo.module.scss';
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import userPhoto from './../../../assets/images/user.svg';
@@ -29,14 +29,23 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 	}
 	return (
 		<div className={styles.infoBlock}>
-			<img className={styles.mainPhoto} src={profile.photos.large || userPhoto} alt="" />
-			{isOwner && <input className={styles.fileInput} type="file" onChange={onMainPhotoSelected} />}
-
-			{editMode ?
-				<ProfileDataForm initialValues={profile} onSubmit={onSubmit} profile={profile} />
-				: <ProfileData goToEditMode={() => {setEditMode(true)}} isOwner={isOwner} profile={profile} />
-			}
-			<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+			<h2 className={styles.header}> {profile.fullName}
+				<div className={styles.mainPhotoWrapper}>
+					<img className={styles.mainPhoto} src={profile.photos.large || userPhoto} alt="" />
+					{isOwner && editMode &&
+						<label className={styles.fileInputLabel}> Select photo
+							<input className={styles.fileInput} type="file" onChange={onMainPhotoSelected} />
+						</label>
+					}
+				</div>
+			</h2>
+			<div className={styles.dataWrapper}>
+				{editMode ?
+					<ProfileDataForm initialValues={profile} onSubmit={onSubmit} profile={profile} />
+					: <ProfileData goToEditMode={() => {setEditMode(true)}} isOwner={isOwner} profile={profile} />
+				}
+				<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+			</div>
 		</div>
 	)
 }
@@ -54,7 +63,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
 		<div>
 			{isOwner &&
 				<div>
-					<button onClick={goToEditMode}>edit</button>
+					<button onClick={goToEditMode} type="button" className={styles.editButton}>Edit profile</button>
 				</div>
 			}
 			<div className={styles.profileString}>

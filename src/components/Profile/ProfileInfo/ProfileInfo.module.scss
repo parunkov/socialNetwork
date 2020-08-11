@@ -1,0 +1,80 @@
+.descripionBlock {
+	display: block;
+	padding: 10px;
+	padding-left: 0;
+}
+.infoBlock {
+	grid-area: info;
+	/*padding: 20px;*/
+	background: #d8e5eb;
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	input, textarea {
+		width: 220px;
+	}
+}
+.header {
+	display: block;
+	padding: 20px;
+	min-width: 220px;
+	color: white;
+	position: relative;
+	margin-top: 0;
+	padding-bottom: 150px;
+	background: #1467C1;
+	text-align: right;
+	margin-bottom: 120px;
+}
+.mainPhotoWrapper {
+	position: absolute;
+	bottom: -120px;
+	left: 20px;
+}
+.mainPhoto{
+	max-width: 200px;
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #1467C1;
+	border-radius: 5px;
+	background: white;
+	margin-bottom: 20px;
+}
+.fileInputLabel {
+	color: #1467C1;
+	border: 2px solid #1467C1;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 10px;
+	cursor: pointer;
+	background: white;
+}
+.fileInput {
+	display: none;
+	margin-top: 10px;
+	color: black;
+}
+.contact {
+	padding-left: 15px;
+}
+.formSummeryError {
+	padding: 5px;
+	line-height: 0.7em;
+	color: white;
+	background: red;
+	display: inline-block;
+}
+.dataWrapper {
+	padding: 20px;
+}
+.editButton {
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.profileString {
+}
+.checkbox {
+	input {
+		width: inherit;
+	}
+}

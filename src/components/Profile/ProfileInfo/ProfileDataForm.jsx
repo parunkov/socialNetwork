@@ -1,14 +1,15 @@
 import React from 'react';
-import styles from './ProfileInfo.module.css';
+import styles from './ProfileInfo.module.scss';
 import {createField, Input, Textarea} from '../../common/FormsControls/FormsControls';
 import {reduxForm} from 'redux-form';
+import cn from 'classnames';
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
 	// console.log(profile.contacts.facebook);
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<button>save</button>
+				<button type="button" className={styles.editButton}>Save profile</button>
 			</div>
 			{error && <div className={styles.formSummeryError}>
 				{error}
@@ -16,7 +17,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
 			<div className={styles.profileString}>
 				<b>Full name:</b> {createField('Full name', 'fullName', Input, [])}
 			</div>
-			<div className={styles.profileString}>
+			<div className={cn(styles.profileString, styles.checkbox)}>
 				<b>Looking for a job:</b> {createField('', 'lookingForAJob', Input, [], {type: 'checkbox'})}
 			</div>
 			<div className={styles.profileString}>
@@ -30,7 +31,6 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
 					return (
 						<div className={styles.contact} key={key}> 
 							<b>{key}:</b> {createField(key, 'contacts.' + key, Input, [])}
-						}
 						</div>
 					)
 				})}

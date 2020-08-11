@@ -26,7 +26,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuShown: true,
+      menuShown: false,
       windowWidth: window.innerWidth
     };
   }
@@ -52,8 +52,6 @@ class App extends React.Component {
     this.setState({windowWidth: window.innerWidth});
     if (window.innerWidth > 700) {
       this.setState({menuShown: true});
-    } else {
-      this.setState({menuShown: false});
     }
   }
 
