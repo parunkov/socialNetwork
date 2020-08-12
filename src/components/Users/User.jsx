@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Users.module.css';
+import styles from './Users.module.scss';
 import userPhoto from './../../assets/images/user.svg';
 import {NavLink} from 'react-router-dom';
 import FollowButton from '../common/Button/FollowButton';
 
 const User = ({user, followingInProgress, unfollow, follow}) => {
 	return (
-		<div className="">
+		<div className={styles.user}>
 			<span>
 				<div>
 					<NavLink to={"/profile/" + user.id}>
@@ -17,13 +17,9 @@ const User = ({user, followingInProgress, unfollow, follow}) => {
 			</span>
 			<span>
 				<span>
-					<div className="">{user.name}</div>
+					<h3 className={styles.userTitle}>{user.name}</h3>
 					<div className="">{user.status}</div>
 				</span>
-				{/*<span>
-					<div className="">{"user.location.city"}</div>
-					<div className="">{"user.location.country"}</div>
-				</span>*/}
 			</span>
 		</div>
 	);

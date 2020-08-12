@@ -1,0 +1,46 @@
+.usersWrapper {
+	padding-bottom: 20px;
+	@media (max-width: 700px) {
+		padding-left: 10px;
+	}
+}
+.users {
+	display: flex;
+	flex-wrap: wrap;
+}
+.userPhoto {
+	width: 60px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #1467C1;
+	margin-bottom: 10px;
+	background: white;
+}
+.pagination .selectedPage {
+	font-weight: bold;
+	cursor: default;
+}
+.pagination span {
+	cursor: pointer;
+}
+.pagination span:after {
+	content: ' ';
+}
+.user {
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	padding: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	background: #d8e5eb;
+	display: grid;
+	grid-template-columns: 90px 1fr;
+	flex: 1 0 290px;
+	@media (max-width: 700px) {
+		flex: 1 0 250px;
+	}
+}
+.userTitle {
+	color: #1467C1;
+	margin-top: 0;
+	margin-bottom: 0;
+}
