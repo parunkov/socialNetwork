@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import styles from './Paginator.module.css';
+import styles from './Paginator.module.scss';
 import cn from 'classnames';
 
 const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, onPageChanged}) => {
@@ -63,10 +63,10 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 							onPageChanged(1);
 							setPortionNumber(1);
 						}}>1</button>
-					<button onClick={() => {
+					<button className={cn(styles.arrow, styles.arrow_direction_left)} onClick={() => {
 						setPortionNumber(portionNumber - 1);
 						onPortionCanged(portionNumber - 1);
-					}}>Prev</button>
+					}}><span>Prev</span></button>
 				</span>
 			}
 			{
@@ -83,10 +83,10 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 			{
 				portionCount > portionNumber && 
 				<span>
-					<button onClick={() => {
+					<button className={cn(styles.arrow, styles.arrow_direction_right)} onClick={() => {
 						setPortionNumber(portionNumber + 1);
 						onPortionCanged(portionNumber + 1);
-					}}>Next</button>
+					}}><span>Next</span></button>
 					<button className="" onClick={(e) => {
 						onPageChanged(pagesCount);
 						setPortionNumber(portionCount);
