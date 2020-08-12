@@ -2,6 +2,9 @@
 	width: 60px;
 	border-radius: 50%;
 }
+.pagination {
+	margin-bottom: 20px;
+}
 .pagination .selectedPage {
 	font-weight: bold;
 	cursor: default;
@@ -10,16 +13,24 @@
 	padding: 2px 5px;
 	margin: 2px;
 }
-.arrow {
+.pagination .arrow {
+	display: inline-block;
 	vertical-align: top;
-	padding: 2px;
+	padding-top: 2px;
+	padding-left: 4px;
 	font-size: 0;
 	width: 28px;
 	height: 28px;
 	span {
+		display: block;
+		width: 16px;
+		height: 16px;
 		background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20341%20341%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22none%22%2F%3E%3Cg%20class%3D%22currentLayer%22%3E%3Cpath%20d%3D%22M341.333%20149.333H81.707L200.853%2030.187%20170.667%200%200%20170.667l170.667%20170.666%2030.186-30.186L81.707%20192h259.626z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
 		background-size: contain;
 	}
+}
+.pagination .arrow_direction_right {
+	transform: rotate(180deg);
 }
 .pagination span {
 	cursor: pointer;

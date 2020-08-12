@@ -2,7 +2,12 @@ import React, {useState, useEffect} from 'react';
 import styles from './Paginator.module.scss';
 import cn from 'classnames';
 
-const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, onPageChanged}) => {
+const Paginator = ({totalItemsCount, pageSize, currentPage, 
+ onPageChanged}) => {
+
+	const DESKTOP_PORTION_SIZE = 10;
+	const MOBILE_PORTION_SIZE = 4;
+	const [portionSize, setPortionSize] = useState(DESKTOP_PORTION_SIZE);
 	const pagesCount = Math.ceil(totalItemsCount / pageSize);
 	const pages = [];
 	for (let i = 1; i <= pagesCount ; i += 1) {
@@ -20,7 +25,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 		} else if (portionNumber === portionSize) {
 			currentPageNumber = pagesCount;
 		} else {
-			currentPageNumber = (portionNumber - 1) * portionSize + 5;
+			currentPageNumber = (portionNumber - 1) * portionSize + (portionSize / 2);
 		}
 		onPageChanged(currentPageNumber);
 	}
@@ -54,6 +59,24 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, portionSize = 10, on
 			} autoFocus={true} type="number" step="1" min="1" max="{pagesCount}" value={inputValue} />
 		}
 	}
+
+
+	const onResize = () => {
+		if (window.innerWidth < 700) {
+	    	setPortionSize(MOBILE_PORTION_SIZE);
+	    } else {
+	    	setPortionSize(DESKTOP_PORTION_SIZE);
+	    }
+	    console.log(portionSize);
+	}
+	useEffect(() => {
+		onResize();
+		window.addEventListener("resize", onResize);
+		return () => {
+			window.removeEventListener("resize", onResize);
+		}
+	});
+
 	return(
 		<div className={styles.pagination}>
 			{

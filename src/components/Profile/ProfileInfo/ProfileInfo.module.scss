@@ -59,10 +59,12 @@
 }
 .formSummeryError {
 	padding: 5px;
-	line-height: 0.7em;
+	line-height: 1em;
 	color: white;
 	background: red;
 	display: inline-block;
+	margin-bottom: 10px;
+	border-radius: 5px;
 }
 .dataWrapper {
 	padding: 20px;
