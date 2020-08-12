@@ -3,7 +3,7 @@ import styles from './Settings.module.scss';
 
 const Settings = () => {
 	return (
-		<div className={styles.sett}>
+		<div className={styles.settings}>
 			<h1>
 				Settings
 			</h1>
