@@ -1,6 +1,8 @@
 import News from './News';
 import {connect} from 'react-redux';
 import {addNews} from '../../redux/news-reducer';
+import {reset} from 'redux-form';
+
 
 const mapStateToProps = (state) => {
 	return {
@@ -8,4 +10,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {addNews})(News);
+export default connect(mapStateToProps, {addNews, reset})(News);
