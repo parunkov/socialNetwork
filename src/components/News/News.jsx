@@ -8,16 +8,16 @@ import styles from './News.module.scss';
 const NewsForm = ({handleSubmit, error}) => {
 	return (
 		<form onSubmit={handleSubmit}>
-			<div className="">
+			<div>
 				<b>News title:</b>
 			</div>
-			<div className="">
+			<div>
 				{createField('News title', 'newsTitle', Input, [required])}
 			</div>
-			<div className="">
+			<div>
 				<b>News text:</b>
 			</div>
-			<div className="">
+			<div>
 				{createField('News text', 'newsText', Textarea, [required])}
 			</div>
 			<button type="submit">Add news</button>

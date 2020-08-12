@@ -3,17 +3,51 @@
 	grid-template-columns: 1fr 250px;
 	grid-template-areas: 
 	"news form";
+	grid-gap: 10px;
 	@media (max-width: 850px) {
 		grid-template-areas: 
 		"news" 
 		"form";
 		grid-template-columns: none;
-		// grid-template-rows: 1fr 1fr;
 	}
 }
 .newsList {
 	grid-area: news;
+	padding: 20px;
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	h1 {
+		margin-top: 0;
+		color: #1467C1;
+	}
+}
+.newsItem {
+	border: 1px solid #1467C1;
+	padding: 10px;
+	border-radius: 5px;
+	background: #d8e5eb;
+	margin-bottom: 10px;
+	h2 {
+		margin-top: 0;
+		color: #1467C1;
+	}
 }
 .form {
 	grid-area: form;
+	padding: 20px;
+	padding-right: 26px;
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	background: #d8e5eb;
+	h2 {
+		margin-top: 0;
+		color: #1467C1;
+	}
+	input, textarea {
+		background: white;
+		width: 100%;
+		margin-bottom: 10px;
+		margin-right: 10px;
+	}
+
 }
