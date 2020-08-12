@@ -34,9 +34,9 @@ const MyPosts = React.memo((props) => {
 
 	return (
 		<div className={styles.postBlock}>
-			<div className="">
+			<div>
 				<h2>My posts</h2>
-				<div className="">New post</div>
+				<div>New post</div>
 				<PostReduxForm onSubmit={onSubmit} />
 			</div>
 			{posts}

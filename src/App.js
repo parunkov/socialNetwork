@@ -80,9 +80,9 @@ class App extends React.Component {
                 <Route path="/news" render={() => <NewsContainer />} />
                 <Route path="/settings" render={() => <Settings />} />
                 <Route path="/users" render={() => <UsersContainer />} />
-                <Route path="/login/facebook" render={() => <div className="">Facebook</div>} />
+                <Route path="/login/facebook" render={() => <div>Facebook</div>} />
                 <Route path="/login" render={() => <LoginPage />} />
-                <Route path="*" render={() => <div className="">404 NOT FOUND</div>} />
+                <Route path="*" render={() => <div>404 NOT FOUND</div>} />
               </Switch>
             </div>
           </div>

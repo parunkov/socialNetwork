@@ -37,17 +37,17 @@ const News = ({news, addNews, reset}) => {
 		reset('news');
 	}
 
-	const newsElements = news.map(news => <NewsItem key={news.id} date={news.date} title={news.title} text={news.text} />);
+	const newsElements = news.reverse().map(news => <NewsItem key={news.id} date={news.date} title={news.title} text={news.text} />);
 
 	return (
 		<div className={styles.news}>
 			<div className={styles.form}>
-				<h2 className="">Add news</h2>
+				<h2>Add news</h2>
 				<NewsReduxForm onSubmit={onSubmit} />
 			</div>
 			<div className={styles.newsList}>
 				<h1>News list</h1>
-				<div className="">
+				<div>
 					{newsElements}
 				</div>
 			</div>

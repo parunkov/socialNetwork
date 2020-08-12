@@ -82,7 +82,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage,
 			{
 				portionNumber > 1 && 
 				<span>
-					<button className="" onClick={(e) => {
+					<button onClick={(e) => {
 							onPageChanged(1);
 							setPortionNumber(1);
 						}}>1</button>
@@ -110,7 +110,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage,
 						setPortionNumber(portionNumber + 1);
 						onPortionCanged(portionNumber + 1);
 					}}><span>Next</span></button>
-					<button className="" onClick={(e) => {
+					<button onClick={(e) => {
 						onPageChanged(pagesCount);
 						setPortionNumber(portionCount);
 					}}>{pagesCount}</button>

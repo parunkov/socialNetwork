@@ -18,7 +18,7 @@ const User = ({user, followingInProgress, unfollow, follow}) => {
 			<span>
 				<span>
 					<h3 className={styles.userTitle}>{user.name}</h3>
-					<div className="">{user.status}</div>
+					<div>{user.status}</div>
 				</span>
 			</span>
 		</div>
