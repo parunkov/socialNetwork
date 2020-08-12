@@ -5,10 +5,10 @@
 }
 .infoBlock {
 	grid-area: info;
-	/*padding: 20px;*/
 	background: #d8e5eb;
 	border: 1px solid #1467C1;
 	border-radius: 5px;
+	margin-bottom: 20px;
 	input, textarea {
 		width: 220px;
 	}

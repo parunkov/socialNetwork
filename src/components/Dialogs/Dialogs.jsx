@@ -16,7 +16,7 @@ const Dialogs = (props) => {
 		return(
 			<form onSubmit={props.handleSubmit}>
 				<div className={styles.addMessageBlock}>
-					<Field component={Textarea} name="message" cols="30" rows="5" className={styles.input} placeholder="Enter new message" validate={[required, maxLength100]} />
+					<Field component={Textarea} name="message" cols="120" rows="5" className={styles.input} placeholder="Enter new message" validate={[required, maxLength100]} />
 					<div>
 						<button type="submit">Add message</button>
 					</div>

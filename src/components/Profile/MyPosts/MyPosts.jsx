@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MyPosts.module.css';
+import styles from './MyPosts.module.scss';
 import Post from './Post/Post';
 import {reduxForm, Field} from 'redux-form';
 import {required, maxLengthCreator} from '../../../utils/validators/validators';
@@ -14,8 +14,8 @@ const MyPosts = React.memo((props) => {
 	const PostForm = (props) => {
 		return(
 			<form onSubmit={props.handleSubmit}>
-				<div className="">
-					<Field component={Textarea} name={"post"} cols="30" rows="5" placeholder="Add post" validate={[required, maxLength10]} />
+				<div className={styles.textareaWrapper}>
+					<Field component={Textarea} name={"post"} cols="120" rows="5" placeholder="Add post" validate={[required, maxLength10]} />
 				</div>
 				<div className={styles.btn}>
 					<button type="submit">Add post</button>

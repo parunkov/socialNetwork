@@ -3,17 +3,28 @@
 	grid-template-columns: 200px 1fr;
 	grid-template-areas: 
 	"item messages";
+	grid-gap: 10px;
 	@media (max-width: 850px) {
 		grid-template-areas: 
 		"item" 
 		"messages";
 		grid-template-columns: none;
-		// grid-template-rows: 1fr 1fr;
 	}
 }
 .dialogsItems {
-	padding: 10px;
+	padding: 20px;
 	grid-area: item;
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	background: #d8e5eb;
+	a {
+		display: inline-block;
+		font-size: 20px;
+		color: #1467C1;
+		margin-bottom: 10px;
+	}
+
 }
 .dialog {
 
@@ -22,19 +33,36 @@
 	color: #ffd700;
 }
 .messages {
-	padding: 10px;
+	padding: 20px;
 	grid-area: messages;
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	h2 {
+		margin-top: 0;
+		color: #1467C1;
+	}
 }
 .message {
 	display: grid;
-	/*grid-template-areas: "avatar text";*/
 	grid-template-columns: 80px 1fr;
 	margin-bottom: 10px;
+	border: 1px solid #1467C1;
+	background: #d8e5eb;
+	border-radius: 5px;
+	padding: 10px;
 }
 .message__avatar {
 	width: 60px;
 	border-radius: 50%;
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #1467C1;
 }
 .addMessageBlock {
-	padding: 10px;
+	padding-top: 10px;
+	padding-right: 6px;
+	textarea {
+		margin-bottom: 10px;
+		display: block;
+		width: 100%;
+	}
 }

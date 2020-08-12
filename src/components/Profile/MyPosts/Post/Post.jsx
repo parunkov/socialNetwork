@@ -1,13 +1,18 @@
 import React from 'react';
-import classes from './Post.module.css';
+import styles from './Post.module.scss';
 
 const Post = (props) => {
 	return (
-		<div className={classes.item}>
-			<img src={props.postPhoto} alt=""/>
-			{props.text}
-			<div className="">
-				<span>Like {props.likesCount}</span>
+		<div className={styles.item}>
+			<div className={styles.imgWrapper}>
+				<img src={props.postPhoto} alt=""/>
+				<div className={styles.likeWrapper}>
+					<span className={styles.like}></span>
+					<span>{props.likesCount}</span>
+				</div>
+			</div>
+			<div className={styles.textWrapper}>
+				{props.text}
 			</div>
 		</div>
 	);

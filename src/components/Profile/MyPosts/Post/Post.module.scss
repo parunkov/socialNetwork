@@ -1,0 +1,38 @@
+.item {
+	border: 1px solid #1467C1;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #d8e5eb;
+	display: grid;
+	grid-template-columns: 65px 1fr;
+	color: #1467C1;
+}
+.item img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #1467C1;
+	margin-bottom: 10px;
+}
+.imgWrapper {
+}
+.likeWrapper {
+	border: 1px solid #1467C1;
+	padding: 2px 5px;
+	display: inline-block;
+	border-radius: 10px;
+	background: white;
+}
+.like {
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22300%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22none%22%2F%3E%3Cg%20class%3D%22currentLayer%22%3E%3Cpath%20d%3D%22M53.333%20224C23.936%20224%200%20247.936%200%20277.333V448c0%2029.397%2023.936%2053.333%2053.333%2053.333h64c12.011%200%2023.061-4.053%2032-10.795V224h-96zM512%20304c0-12.821-5.077-24.768-13.888-33.579%209.963-10.901%2015.04-25.515%2013.653-40.725-2.496-27.115-26.923-48.363-55.637-48.363H324.352c6.528-19.819%2016.981-56.149%2016.981-85.333%200-46.272-39.317-85.333-64-85.333-22.165%200-37.995%2012.48-38.677%2012.992A10.72%2010.72%200%2000234.667%2032v72.341l-61.44%20133.099-2.56%201.301v228.651C188.032%20475.584%20210.005%20480%20224%20480h195.819c23.232%200%2043.563-15.659%2048.341-37.269%202.453-11.115%201.024-22.315-3.861-32.043%2015.765-7.936%2026.368-24.171%2026.368-42.688%200-7.552-1.728-14.784-5.013-21.333C501.419%20338.731%20512%20322.496%20512%20304z%22%20fill%3D%22%231467c1%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+}
+.textWrapper {
+	color: black;
+}
