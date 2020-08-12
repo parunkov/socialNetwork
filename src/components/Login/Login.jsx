@@ -5,7 +5,7 @@ import {required} from '../../utils/validators/validators';
 import {connect} from 'react-redux';
 import {login, logout, getCaptchaUrl} from '../../redux/auth-reducer';
 import {Redirect} from 'react-router-dom';
-import styles from './Login.module.css';
+import styles from './Login.module.scss';
 
 const LoginForm = ({handleSubmit, error, captchaUrl}) => {
 	return (
@@ -16,7 +16,7 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
 			<div>
 				{createField("Password", "password", Input, [required], {type: "password"})}
 			</div>
-			<div>
+			<div className={styles.checkbox}>
 				{createField(null, "rememberMe", Input, [], {type: "checkbox"}, 'Remember me')}
 			</div>
 			<div className="">
@@ -52,7 +52,7 @@ const Login = (props) => {
 	}
 
 	return (
-		<div>
+		<div className={styles.loginForm}>
 			<h1>Login</h1>
 			<LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
 		</div>
