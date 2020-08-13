@@ -67,7 +67,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage,
 	    } else {
 	    	setPortionSize(DESKTOP_PORTION_SIZE);
 	    }
-	    console.log(portionNumber);
+	    setPortionNumber(Math.ceil(currentPage / portionSize));
 	}
 	useEffect(() => {
 		onResize();
