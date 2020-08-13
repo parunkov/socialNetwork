@@ -81,7 +81,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
 				<b>About me:</b> {profile.aboutMe}
 			</div>
 			<div>
-				<b>Contacns:</b> {Object.keys(profile.contacts).map(key => {
+				<b>Contacts:</b> {Object.keys(profile.contacts).map(key => {
 					return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
 				})}
 			</div>

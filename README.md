@@ -4,7 +4,12 @@
 
 Учебный проект. SPA социальной сети на React/Redux. 
 
-Данные тестового аккаунта: Email: free@samuraijs.com, Password: free. Регистрация нового аккаунта возможна на странице API соцсети https://social-network.samuraijs.com
+Данные тестового аккаунта: Email: free@samuraijs.com, Password: free. Регистрация нового аккаунта возможна на странице API соцсети https://social-network.samuraijs.com API key добавляется в файле api.js:
+
+	headers: {
+		"API-KEY": "...",
+	}
+
 Ограничения для бесплатного аккаунта:
 Сумарное кол-во ВСЕХ запросов в день - 300
 Сумарное кол-во ВСЕХ запросов в секунду - 11
