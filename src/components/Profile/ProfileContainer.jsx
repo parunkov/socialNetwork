@@ -20,7 +20,8 @@ class ProfileContainer extends React.Component {
 		this.props.getProfile(userId);
 		this.props.getStatus(userId);
 		this.props.getFollowing(userId);
-		this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
+		const savedFrends = JSON.parse(localStorage.getItem('frends'));
+	     this.props.getFrends(savedFrends ? savedFrends : []);
 	}
 	componentDidMount() {
 		this.refreshProfile();

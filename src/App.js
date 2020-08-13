@@ -38,7 +38,8 @@ class App extends React.Component {
   componentDidMount() {
      this.props.initializeApp();
      window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
-     this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
+     const savedFrends = JSON.parse(localStorage.getItem('frends'));
+     this.props.getFrends(savedFrends ? savedFrends : []);
      window.addEventListener("resize", this.updateWidth);
      this.updateWidth();
   }
@@ -49,6 +50,7 @@ class App extends React.Component {
   }
 
   updateWidth = () => {
+    // console.log('resize');
     this.setState({windowWidth: window.innerWidth});
     if (window.innerWidth > 700) {
       this.setState({menuShown: true});

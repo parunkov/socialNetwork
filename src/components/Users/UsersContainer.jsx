@@ -16,7 +16,8 @@ class UsersContainer extends React.Component {
 	componentDidMount() {
 		const {currentPage, pageSize} = this.props;
 		this.props.getUsers(currentPage, pageSize);
-		this.props.getFrends(JSON.parse(localStorage.getItem('frends')));
+		const savedFrends = JSON.parse(localStorage.getItem('frends'));
+	    this.props.getFrends(savedFrends ? savedFrends : []);
 	}
 
 	onPageChanged = (pageNumber) => {

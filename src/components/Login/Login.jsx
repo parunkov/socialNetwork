@@ -47,7 +47,7 @@ const Login = (props) => {
 	}
 
 	if (props.isAuth) {
-		console.log(props);
+		// console.log(props);
 		return <Redirect to={"/profile"} />
 	}
 
