@@ -46,7 +46,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage,
 				(e) => {setEditMode(true)}
 			} key={p}>{p}</span>
 		} else {
-			return <input onChange={onInputChange} onBlur={
+			return <input className={styles.input} onChange={onInputChange} onBlur={
 				(e) => {
 					let inputNumber = Math.floor(+e.currentTarget.value);
 					if (inputNumber < 1) inputNumber = 1;
@@ -67,7 +67,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage,
 	    } else {
 	    	setPortionSize(DESKTOP_PORTION_SIZE);
 	    }
-	    console.log(portionSize);
+	    console.log(portionNumber);
 	}
 	useEffect(() => {
 		onResize();
