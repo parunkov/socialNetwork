@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Sidebar.module.css';
+import styles from './Sidebar.module.scss';
 import userPhoto from '../../assets/images/user.svg';
 import {NavLink} from 'react-router-dom';
 
