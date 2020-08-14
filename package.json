@@ -22,7 +22,11 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "reset-css": "^5.0.1",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "stylelint": "^13.6.1",
+    "stylelint-config-airbnb": "0.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   },
   "scripts": {
     "start": "react-scripts start",

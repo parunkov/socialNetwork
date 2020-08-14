@@ -15,18 +15,21 @@
 body {
   font-size: 16px;
   margin: 0;
-  font-family: 'Myraid';
+  font-family: "Myraid";
+
   /*font-family: -apple-system, BlinkMacSystemFont, 'Rubik', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;*/
 }
+
 a {
   text-decoration: none;
 }
+
 button {
-  font-family: 'Myraid';
+  font-family: "Myraid";
   border: 2px solid #1467C1;
   font-size: 16px;
   font-weight: 700;
@@ -35,7 +38,8 @@ button {
   padding: 5px 10px;
   border-radius: 10px;
 }
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

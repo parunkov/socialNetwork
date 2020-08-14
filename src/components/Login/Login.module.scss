@@ -1,38 +1,46 @@
 .loginForm {
-	border: 1px solid #1467C1;
-	padding: 20px;
-	padding-bottom: 50px;
-	border-radius: 5px;
-	h1 {
-		margin-top: 0;
-		color: #1467C1;
-	}
-	input {
-		margin-bottom: 10px;
-	}
+  border: 1px solid #1467C1;
+  padding: 20px;
+  padding-bottom: 50px;
+  border-radius: 5px;
+
+  h1 {
+    margin-top: 0;
+    color: #1467C1;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
 }
+
 .checkbox {
-	span {
-		display: inline-block;
-		vertical-align: top;
-		// margin-top: -5px;
-	}
-	div {
-		div {
-			display: inline-block;
-			width: 20px;
-			// margin-top: 5px;
-		}
-	}
-	input {
-		display: inline-block;
-		float: left;
-	}
+
+  span {
+    display: inline-block;
+    vertical-align: top;
+    // margin-top: -5px;
+  }
+
+  div {
+
+    div {
+      display: inline-block;
+      width: 20px;
+      // margin-top: 5px;
+    }
+  }
+
+  input {
+    display: inline-block;
+    float: left;
+  }
 }
+
 .formSummeryError {
-	padding: 5px;
-	line-height: 0.7em;
-	color: white;
-	background: red;
-	display: inline-block;
+  padding: 5px;
+  line-height: .7em;
+  color: white;
+  background: red;
+  display: inline-block;
 }
